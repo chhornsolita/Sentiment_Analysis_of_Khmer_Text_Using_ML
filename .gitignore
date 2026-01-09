@@ -1,0 +1,59 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Trained Models
+models/*.pkl
+models/*.joblib
+models/*.h5
+
+# Results
+results/*.png
+results/*.csv
+results/*.txt
+
+# Data (uncomment if you don't want to track data)
+# data/*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

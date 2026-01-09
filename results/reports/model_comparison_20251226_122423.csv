@@ -1,0 +1,7 @@
+﻿Model,Accuracy,F1-Macro,Precision-Macro,Recall-Macro,Best CV Score
+Logistic Regression,0.5261,0.52,0.5176,0.5275,0.4631
+SVM,0.5403,0.5089,0.526,0.5012,0.4518
+Random Forest,0.5213,0.4841,0.4852,0.4845,0.4712
+Naive Bayes,0.5118,0.4371,0.5127,0.4352,0.4219
+XGBoost,0.5071,0.4188,0.4756,0.4231,0.4269
+Bidirectional LSTM,0.4834,0.2849,0.4632,0.3572,0.497
