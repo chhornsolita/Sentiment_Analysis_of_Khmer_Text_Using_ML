@@ -1,15 +1,3 @@
----
-title: Khmer Sentiment Analysis
-emoji: 📚
-colorFrom: green
-colorTo: indigo
-sdk: docker
-pinned: false
-license: mit
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
 # Khmer Sentiment Analysis
 
 A machine learning project for sentiment analysis of Khmer (Cambodian) text using various classification algorithms.
