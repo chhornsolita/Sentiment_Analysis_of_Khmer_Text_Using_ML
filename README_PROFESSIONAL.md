@@ -161,7 +161,7 @@ python predict.py --model_path models/saved_models/best_model_*.pkl \
 
 | Model | Type | F1-Macro | Accuracy |
 |-------|------|----------|----------|
-| Logistic Regression | Traditional ML | 0.52 | 0.53 |
+| Logistic Regression | Traditional ML | - | - |
 | SVM | Traditional ML | - | - |
 | Naive Bayes | Traditional ML | - | - |
 | Random Forest | Traditional ML | - | - |

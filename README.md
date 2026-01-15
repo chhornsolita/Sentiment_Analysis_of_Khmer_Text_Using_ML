@@ -5,6 +5,7 @@ A machine learning project for sentiment analysis of Khmer (Cambodian) text usin
 ## 📋 Project Overview
 
 This project implements sentiment analysis for Khmer text, classifying text into three categories:
+
 - **Positive** (អវិជ្ជមាន)
 - **Neutral** (អព្យាក្រឹត)
 - **Negative** (វិជ្ជមាន)
@@ -49,24 +50,26 @@ This project performs comprehensive sentiment analysis on Khmer text data using 
 ## 📁 Project Structure
 
 ```
+
 PROJECT/
 │
-├── Model.ipynb              # Main notebook with all analysis
-├── README.md                # Project documentation
-├── requirements.txt         # Python dependencies
+├── Model.ipynb # Main notebook with all analysis
+├── README.md # Project documentation
+├── requirements.txt # Python dependencies
 │
 ├── data/
-│   ├── Data Collection - Sheet1.csv  # Original data
-│   └── data_cleaned_all.csv          # Cleaned dataset (1057 samples)
+│ ├── Data Collection - Sheet1.csv # Original data
+│ └── data_cleaned_all.csv # Cleaned dataset (3871 samples)
 │
-├── models/                  # Saved models (generated after training)
-│   ├── best_lr_model.pkl
-│   ├── lstm_model.h5
-│   └── lstm_tokenizer.pkl
+├── models/ # Saved models (generated after training)
+│ ├── best_lr_model.pkl
+│ ├── lstm_model.h5
+│ └── lstm_tokenizer.pkl
 │
 └── src/
-    └── clean_space.py       # Utility scripts
-```
+└── clean_space.py # Utility scripts
+
+````
 
 ## 🔧 Installation
 
@@ -75,16 +78,16 @@ PROJECT/
 2. **Install dependencies**:
 ```bash
 pip install -r requirements.txt
-```
+````
 
 3. **Required Python Version**: Python 3.8 or higher
 
 ## 📊 Dataset
 
-- **Size**: 1,057 Khmer text samples
-- **Classes**: 
+- **Size**: 3,870 Khmer text samples
+- **Classes**:
   - Positive
-  - Negative  
+  - Negative
   - Neutral
 - **Source**: Social media posts and news comments in Khmer language
 - **Format**: CSV with columns: `text`, `target`
@@ -92,11 +95,13 @@ pip install -r requirements.txt
 ## 🚀 Usage
 
 1. **Open the Jupyter Notebook**:
+
 ```bash
 jupyter notebook Model.ipynb
 ```
 
 2. **Run cells sequentially**:
+
    - Load and explore data
    - Preprocess Khmer text
    - Train traditional ML models (LR, SVM, NB)
@@ -105,6 +110,7 @@ jupyter notebook Model.ipynb
    - Analyze errors and visualize results
 
 3. **Make predictions on new text**:
+
 ```python
 # Example prediction
 new_text = "ខ្ញុំចូលចិត្តផលិតផលនេះណាស់"
@@ -116,6 +122,7 @@ print(f"Sentiment: {prediction[0]}")
 ## 📈 Model Performance
 
 The notebook includes comprehensive comparison of all models with:
+
 - Accuracy scores
 - F1-Macro and F1-Weighted scores
 - Confusion matrices
@@ -133,11 +140,13 @@ The notebook includes comprehensive comparison of all models with:
 ## 🎓 Key Findings & Recommendations
 
 ### Current Limitations:
+
 - Small dataset (~1000 samples) limits deep learning performance
 - Limited slang dictionary coverage
 - No BERT-based models yet
 
 ### Future Improvements:
+
 1. **Expand Dataset**: Target 5,000-10,000+ samples
 2. **Add BERT Models**: Fine-tune mBERT or XLM-RoBERTa
 3. **Enhanced Preprocessing**: Comprehensive slang dictionary, negation handling
@@ -147,6 +156,7 @@ The notebook includes comprehensive comparison of all models with:
 ## 📚 Requirements
 
 See [requirements.txt](requirements.txt) for full list. Main dependencies:
+
 - pandas, numpy
 - scikit-learn (traditional ML)
 - tensorflow/keras (LSTM)
@@ -155,6 +165,7 @@ See [requirements.txt](requirements.txt) for full list. Main dependencies:
 ## 🤝 Contributing
 
 To improve this project:
+
 1. Expand the labeled Khmer dataset
 2. Add more slang mappings to the preprocessing function
 3. Implement BERT-based models
@@ -170,8 +181,9 @@ Created as part of the I5-AMS WR project focusing on Khmer NLP and sentiment ana
 
 ---
 
-**Note**: This project demonstrates practical implementation of sentiment analysis on a low-resource language (Khmer) with limited data. Performance can be significantly improved with more training data and advanced models.                           # This file
-```
+**Note**: This project demonstrates practical implementation of sentiment analysis on a low-resource language (Khmer) with limited data. Performance can be significantly improved with more training data and advanced models. # This file
+
+````
 
 ## 🚀 Getting Started
 
@@ -187,9 +199,10 @@ Created as part of the I5-AMS WR project focusing on Khmer NLP and sentiment ana
 2. Install required dependencies:
 ```bash
 pip install -r requirements.txt
-```
+````
 
 3. (Optional) Install XGBoost for advanced models:
+
 ```bash
 pip install xgboost
 ```
@@ -197,6 +210,7 @@ pip install xgboost
 ## 📊 Dataset
 
 The dataset should be in CSV format with the following columns:
+
 - `text`: Khmer text to analyze
 - `target`: Sentiment label (positive, neutral, negative)
 
@@ -207,27 +221,32 @@ Place your dataset in the `data/` directory.
 ### Training Models
 
 Train all models with basic settings:
+
 ```bash
 cd src
 python train.py
 ```
 
 Train specific models:
+
 ```bash
 python train.py --models lr svm nb
 ```
 
 Train with enhanced preprocessing:
+
 ```bash
 python train.py --enhanced
 ```
 
 Train with ensemble voting classifier:
+
 ```bash
 python train.py --ensemble --save-models
 ```
 
 Available options:
+
 - `--data-path`: Path to dataset (default: `data/Data Collection - Sheet1.csv`)
 - `--models`: Models to train: `all`, `lr`, `svm`, `nb`, `rf`, `xgb`
 - `--enhanced`: Use enhanced preprocessing with stopwords removal
@@ -239,11 +258,13 @@ Available options:
 ### Making Predictions
 
 Predict sentiment for new text:
+
 ```bash
 python predict.py --text "អរគុណច្រើន" --model models/svm.pkl
 ```
 
 Options:
+
 - `--text`: Khmer text to analyze (required)
 - `--vectorizer`: Path to saved vectorizer (default: `models/vectorizer.pkl`)
 - `--model`: Path to saved model (default: `models/svm.pkl`)
@@ -254,6 +275,7 @@ Options:
 ### data_preprocessing.py
 
 Functions for cleaning and preprocessing Khmer text:
+
 - `khmer_preprocess(text)`: Basic text cleaning
 - `khmer_preprocess_enhanced(text)`: Enhanced cleaning with stopword removal
 - `load_and_clean_data(filepath)`: Load and preprocess dataset
@@ -262,6 +284,7 @@ Functions for cleaning and preprocessing Khmer text:
 ### feature_extraction.py
 
 TF-IDF feature extraction:
+
 - `create_tfidf_vectorizer()`: Create standard vectorizer
 - `create_enhanced_vectorizer()`: Create enhanced vectorizer with optimized parameters
 - `extract_features(df)`: Extract TF-IDF features from text
@@ -270,6 +293,7 @@ TF-IDF feature extraction:
 ### models.py
 
 Model training functions:
+
 - `train_logistic_regression()`: Train Logistic Regression with grid search
 - `train_svm()`: Train Support Vector Machine
 - `train_naive_bayes()`: Train Multinomial Naive Bayes
@@ -281,6 +305,7 @@ Model training functions:
 ### evaluation.py
 
 Model evaluation and visualization:
+
 - `evaluate_model()`: Calculate accuracy, F1 score, and print classification report
 - `plot_confusion_matrix()`: Visualize confusion matrix
 - `plot_sentiment_distribution()`: Plot label distribution
@@ -291,37 +316,42 @@ Model evaluation and visualization:
 
 Based on the experimental results:
 
-| Model | Accuracy |
-|-------|----------|
-| Logistic Regression | ~46% |
-| SVM | ~52% |
-| Naive Bayes | ~49% |
-| Random Forest | ~50-55% |
-| XGBoost | ~50-55% |
-| Voting Classifier | ~52-56% |
+| Model               | Accuracy  | F1‑Macro  |
+| ------------------- | ------------ | ------------ |
+| XGBoost             | 0.8333    | 0.8308    |
+| SVM                 | 0.7623    | 0.7629    |
+| Random Forest       | 0.7661    | 0.7613    |
+| Bidirectional LSTM  | 0.7442    | 0.7450    |
+| Logistic Regression | 0.7274    | 0.7290    |
+| Naive Bayes         | 0.5956    | 0.5838    |
 
-*Note: Results may vary based on dataset and hyperparameters*
+Note: Results from training on January 13, 2026. Performance metrics are from test set evaluation.
+
 
 ## 🔍 Key Features
 
 ### Text Preprocessing
+
 - Unicode normalization for Khmer characters
 - Removal of numbers and punctuation
 - Khmer stopwords removal (enhanced mode)
 - Whitespace normalization
 
 ### Feature Engineering
+
 - TF-IDF vectorization with n-grams (unigrams, bigrams, trigrams)
 - Configurable feature limits and document frequency filters
 - Sublinear TF scaling for better performance
 
 ### Model Training
+
 - Automated class weight balancing for imbalanced datasets
 - Grid search hyperparameter optimization
 - Cross-validation for robust evaluation
 - Support for multiple model architectures
 
 ### Evaluation
+
 - Comprehensive metrics (accuracy, F1-score, precision, recall)
 - Confusion matrix visualization
 - Model comparison charts
@@ -336,8 +366,6 @@ To improve model performance:
 3. **Deep Learning**: Use pre-trained models like XLM-RoBERTa for multilingual understanding
 4. **Feature Engineering**: Add character-level features, text length, sentiment lexicons
 5. **Data Augmentation**: Use back-translation, synonym replacement
-
-
 
 ---
 

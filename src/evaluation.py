@@ -9,7 +9,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pandas.api.types import is_numeric_dtype
 from sklearn.metrics import (
     classification_report,
     accuracy_score,
@@ -65,20 +64,12 @@ def compare_models(models: Dict, X_test, y_test, le=None) -> pd.DataFrame:
     comparison_results = []
     
     for name, model in models.items():
-        y_pred = model.predict(X_test)
-
         if name == "XGBoost" and le is not None:
-            # Decode predictions and, when possible, decode test labels to align spaces
+            y_pred = model.predict(X_test)
             y_pred_labels = le.inverse_transform(y_pred)
-            if is_numeric_dtype(y_test):
-                try:
-                    y_test_labels = le.inverse_transform(y_test)
-                except Exception:
-                    y_test_labels = y_test
-            else:
-                y_test_labels = y_test
+            y_test_labels = y_test
         else:
-            y_pred_labels = y_pred
+            y_pred_labels = model.predict(X_test)
             y_test_labels = y_test
         
         result = {

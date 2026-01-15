@@ -33,13 +33,9 @@ def compute_roc_curves_multiclass(
     """
     from sklearn.preprocessing import label_binarize
     
-    classes = list(np.unique(y_true) if classes is None else classes)
-    if y_pred_proba.shape[1] != len(classes):
-        raise ValueError(
-            f"Predicted probabilities have {y_pred_proba.shape[1]} columns but classes has {len(classes)} entries. "
-            "Pass classes aligned to the model's class order."
-        )
-
+    if classes is None:
+        classes = np.unique(y_true)
+    
     # Binarize the labels for multi-class ROC
     y_true_bin = label_binarize(y_true, classes=classes)
     n_classes = len(classes)
@@ -172,12 +168,8 @@ def get_optimal_thresholds_multiclass(
     """
     from sklearn.preprocessing import label_binarize
     
-    classes = list(np.unique(y_true) if classes is None else classes)
-    if y_pred_proba.shape[1] != len(classes):
-        raise ValueError(
-            f"Predicted probabilities have {y_pred_proba.shape[1]} columns but classes has {len(classes)} entries. "
-            "Pass classes aligned to the model's class order."
-        )
+    if classes is None:
+        classes = np.unique(y_true)
     
     y_true_bin = label_binarize(y_true, classes=classes)
     n_classes = len(classes)
@@ -222,12 +214,6 @@ def predict_with_threshold(
     Returns:
         Array of predicted class labels
     """
-    if y_pred_proba.shape[1] != len(classes):
-        raise ValueError(
-            f"Predicted probabilities have {y_pred_proba.shape[1]} columns but classes has {len(classes)} entries. "
-            "Pass classes aligned to the model's class order."
-        )
-
     n_samples = y_pred_proba.shape[0]
     predictions = []
     
